@@ -1,5 +1,7 @@
 import { NavBar } from "./components/NavBar"
-import { Routes } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
+import { CompresScreen } from "./screens/CompresScreen"
+import { ProductesScreen } from "./screens/ProductesScreen"
 
 export const CarroApp = () => 
 {
@@ -9,7 +11,9 @@ export const CarroApp = () =>
             <hr/>
             <NavBar></NavBar>
             <Routes>
-                {/* TODO navigation routes <Route></Route> */}
+                <Route path="/" element={<CompresScreen></CompresScreen>}></Route>
+                <Route path="/llista" element={<ProductesScreen></ProductesScreen>}></Route>
+                <Route path="/*" element={<Navigate></Navigate>}></Route>
             </Routes>
         </>
     )
