@@ -5,12 +5,14 @@ export const CarroScreen = () => {
     const { llistaCompres, afegirCompra, eliminarCompra, augmentarQuantitat, disminuirQuantitat } = useContext(CompresContext);
 
     const calcularTotal = () => {
-        return llistaCompres.reduce((total, item) => total + item.price * item.quantitat, 0).toFixed(2);
+        return llistaCompres.reduce((total, item) => total + item.preu * item.quantitat, 0).toFixed(2);
     };
 
     const handleImpressio = () => {
         print();
     };
+
+    // console.log(llistaCompres);
 
     return (
     <>
@@ -28,8 +30,8 @@ export const CarroScreen = () => {
                 <tbody>
                 {llistaCompres.map((p) => (
                     <tr key={p.id}>
-                    <th scope="row">{p.title}</th>
-                    <td>{p.price}</td>
+                    <th scope="row">{p.titol}</th>
+                    <td>{p.preu}</td>
                     <td>
                         <button className="btn btn-outline-primary" onClick={() => disminuirQuantitat(p.id)}>
                         -

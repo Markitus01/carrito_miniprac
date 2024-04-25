@@ -31,8 +31,7 @@ export const CompresScreen = () =>{
                         puntuacio={p.rating.rate}
                         vots={p.rating.count}
                         handleAfegir={() => handleAfegir(p)}
-                        handleEliminar={()=>handleEliminar(p.id)}
-                        productesAlCarro={llistaCompres}>
+                        handleEliminar={()=>handleEliminar(p.id)}>
                     </Card>
                 )
             }

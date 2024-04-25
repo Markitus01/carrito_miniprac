@@ -1,28 +1,21 @@
-import { useState } from "react"
+import { useContext } from "react"
+import { CompresContext } from "../context/CompresContext";
 
-export const Card = ({id,imatge,titol,categoria,descripcio,preu,puntuacio,vots,handleAfegir,handleEliminar,productesAlCarro}) =>
+export const Card = ({id,imatge,titol,categoria,descripcio,preu,puntuacio,vots}) =>
 {
-    const[added,setAdded]=useState(false);
-
-    const f_checkProducte = (producteId) =>
-    {
-        return productesAlCarro.includes(producteId);
-    };
+    const { llistaCompres, afegirCompra, eliminarCompra } = useContext(CompresContext);
 
     const f_afegirProducte = () =>
     {
-        if (!f_checkProducte(id))
-        {
-            handleAfegir();
-            setAdded(true);
-        }
+        afegirCompra({id, imatge, titol, categoria, descripcio, preu, puntuacio, vots});
     };
     
     const f_treureProducte = () =>
     {
-        handleEliminar();
-        setAdded(false);
+        eliminarCompra({id});
     }
+
+    const estaAlCarro = llistaCompres.some(producte => producte.id === id);
 
     return(
         <div className="tarjeta">
@@ -34,7 +27,7 @@ export const Card = ({id,imatge,titol,categoria,descripcio,preu,puntuacio,vots,h
                 <p className="tarjeta-precio">{preu}€</p>
                 <p className="tarjeta-puntuacion">Puntuació: {puntuacio} ({vots} opinions)</p>
                 {
-                    added?
+                    estaAlCarro?
                         <button className="boton-quitar"
                         onClick={f_treureProducte}>Treure del cistell</button>
                         :
