@@ -7,7 +7,7 @@ export const Card = ({id,imatge,titol,categoria,descripcio,preu,puntuacio,vots})
 
     const f_afegirProducte = () =>
     {
-        afegirCompra({id, imatge, titol, categoria, descripcio, preu, puntuacio, vots});
+        afegirCompra({id, titol, preu});
     };
     
     const f_treureProducte = () =>
