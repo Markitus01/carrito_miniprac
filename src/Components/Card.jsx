@@ -12,7 +12,7 @@ export const Card = ({id,imatge,titol,categoria,descripcio,preu,puntuacio,vots})
     
     const f_treureProducte = () =>
     {
-        eliminarCompra({id});
+        eliminarCompra(id);
     }
 
     const estaAlCarro = llistaCompres.some(producte => producte.id === id);
