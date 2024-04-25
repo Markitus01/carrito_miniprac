@@ -22,12 +22,17 @@ export const CompresScreen = () =>{
             {
                 productes.map(p=>
                     <Card key={p.id}
+                        id={p.id}
                         imatge={p.image}
                         titol={p.title}
+                        categoria={p.category}
                         descripcio={p.description}
                         preu={p.price}
+                        puntuacio={p.rating.rate}
+                        vots={p.rating.count}
                         handleAfegir={() => handleAfegir(p)}
-                        handleEliminar={()=>handleEliminar(p.id)}>
+                        handleEliminar={()=>handleEliminar(p.id)}
+                        productesAlCarro={llistaCompres}>
                     </Card>
                 )
             }

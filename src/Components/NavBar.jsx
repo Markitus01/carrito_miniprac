@@ -19,7 +19,7 @@ export const NavBar = () =>{
                             </li>
                         </ul>
                         <NavLink to="/">
-                            <Badge badgeContent={llistaCompres.length} color="secondary">
+                            <Badge badgeContent={llistaCompres.length} color="primary">
                                 <ShoppingCart color="action" />
                             </Badge>
                         </NavLink>
